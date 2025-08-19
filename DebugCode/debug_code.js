@@ -6,10 +6,15 @@
         // Check if inputs are valid numbers
         if (!isNaN(num1) && !isNaN(num2)) {
         // Perform the operation
-                        let result = multiply(num1, num2);
+                        let result_multiplication = multiply(num1, num2);
+                        let result_add = add(num1, num2);
+                        let result_division = division(num1, num2)
     
-                        // Display the result
-                        displayResult(result);
+                        // Create a single string with all results
+                        let finalResult = `Multiplication: ${result_multiplication}\nAddition: ${result_add}\nDivision: ${result_division}`;
+
+                        // Display the concatenated result
+                        displayResult(finalResult);
                     } else {
                         displayResult('Please enter valid numbers');
                     }
@@ -22,6 +27,26 @@
                     // Multiply the numbers
                     return a * b;
                 }
+
+                function add(a, b) {
+                    // Introduce a debugger statement to pause execution
+                    debugger; 
+
+                    return a + b;
+                }
+
+                function division(a, b) {
+                    if (b != 0) {
+                        // Introduce a debugger statement to pause execution
+                        debugger;
+
+                        return a/b;
+                    } else {
+                        alert('Number 2 must be greater than 0')
+                    }
+                }
+
+            
     
                 function displayResult(result) {
                     // Display the result in the paragraph element
