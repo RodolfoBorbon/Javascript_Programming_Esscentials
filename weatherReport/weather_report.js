@@ -3,21 +3,47 @@ function showweatherDetails(event) {
 
     const city = document.getElementById('city').value;
     const apiKey = '06668d1c771d832dc090a1b25d7646f2'; // Replace 'YOUR_API_KEY' with your actual API key
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiUrl_1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-    fetch(apiUrl)
+    fetch(apiUrl_1)
     .then(response => response.json())
     .then(data => {
-      const weatherInfo = document.getElementById('weatherInfo');
-      weatherInfo.innerHTML = `<h2>Weather in ${data.name}</h2>
+      const weatherInfo1 = document.getElementById('weatherInfo1');
+      weatherInfo1.innerHTML = `<h2>Weather in ${data.name}</h2>
                               <p>Temperature: ${data.main.temp} &#8451;</p>
                               <p>Weather: ${data.weather[0].description}</p>`;
     })
     .catch(error => {
         console.error('Error fetching weather:', error);
-        const weatherInfo = document.getElementById('weatherInfo');
-        weatherInfo.innerHTML = `<p>Failed to fetch weather. Please try again.</p>`;
+        const weatherInfo1 = document.getElementById('weatherInfo1');
+        weatherInfo1.innerHTML = `<p>Failed to fetch weather. Please try again.</p>`;
       });
 }
 
-document.getElementById('weatherForm').addEventListener('submit',showweatherDetails );
+document.getElementById('weatherForm1').addEventListener('submit',showweatherDetails );
+
+
+function showweatherDetails2(event) {
+    event.preventDefault();
+
+    const lat = document.getElementById('lattitude').value;
+    const lon = document.getElementById('longitude').value;
+    const apiKey = '06668d1c771d832dc090a1b25d7646f2'; // Replace 'YOUR_API_KEY' with your actual API key
+    const apiUrl_2 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+    fetch(apiUrl_2)
+    .then(response => response.json())
+    .then(data => {
+      const weatherInfo2 = document.getElementById('weatherInfo2');
+      weatherInfo2.innerHTML = `<h2>Weather in ${data.name}</h2>
+                              <p>Temperature: ${data.main.temp} &#8451;</p>
+                              <p>Weather: ${data.weather[0].description}</p>`;
+    })
+    .catch(error => {
+        console.error('Error fetching weather:', error);
+        const weatherInfo2 = document.getElementById('weatherInfo2');
+        weatherInfo2.innerHTML = `<p>Failed to fetch weather. Please try again.</p>`;
+      });
+}
+
+document.getElementById('weatherForm2').addEventListener('submit',showweatherDetails2 );
